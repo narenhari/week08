@@ -154,7 +154,11 @@ jobs:
   
       # This is the new step that uses your admin credentials
       - name: Docker Login to ACR
-        run: echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ env.ACR_LOGIN_SERVER }} -u "${{ secrets.ACR_USERNAME }}" --password-stdin
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ secrets.ACR_LOGIN_SERVER }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
   
       # The build and push steps remain the same
       - name: Build and Push Product Service Image
