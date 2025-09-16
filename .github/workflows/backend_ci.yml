@@ -152,17 +152,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
   
-      # This is the new step that uses your admin credentialsss
+      # This is the new step that uses your admin credentials
       - name: Docker Login to ACR
         run: echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ env.ACR_LOGIN_SERVER }} -u "${{ secrets.ACR_USERNAME }}" --password-stdin
   
       # The build and push steps remain the same
       - name: Build and Push Product Service Image
         run: |
-          docker build -t ${{ env.ACR_LOGIN_SERVER }}/product_service:latest ./backend/product_service/
-          docker push ${{ env.ACR_LOGIN_SERVER }}/product_service:latest
+          docker build -t ${{ env.ACR_LOGIN_SERVER }}/product_service:${{ env.IMAGE_TAG }} -t ${{ env.ACR_LOGIN_SERVER }}/product_service:latest ./backend/product_service/
+          docker push ${{ env.ACR_LOGIN_SERVER }}/product_service --all-tags
   
       - name: Build and Push Order Service Image
         run: |
-          docker build -t ${{ env.ACR_LOGIN_SERVER }}/order_service:latest ./backend/order_service/
-          docker push ${{ env.ACR_LOGIN_SERVER }}/order_service:latest
+          docker build -t ${{ env.ACR_LOGIN_SERVER }}/order_service:${{ env.IMAGE_TAG }} -t ${{ env.ACR_LOGIN_SERVER }}/order_service:latest ./backend/order_service/
+          docker push ${{ env.ACR_LOGIN_SERVER }}/order_service --all-tags
