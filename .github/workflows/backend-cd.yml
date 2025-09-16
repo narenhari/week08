@@ -38,8 +38,8 @@ jobs:
         with:
           #creds: ${{ secrets.AZURE_CREDENTIALS_2 }}
           #enable-AzPSSession: true
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          #client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          #tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Set Kubernetes context (get AKS credentials)
