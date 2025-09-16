@@ -152,7 +152,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
   
-      # This is the new step that uses your admin credentialss
+      # This is the new step that uses your admin credentialsss
       - name: Docker Login to ACR
         run: echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ env.ACR_LOGIN_SERVER }} -u "${{ secrets.ACR_USERNAME }}" --password-stdin
   
