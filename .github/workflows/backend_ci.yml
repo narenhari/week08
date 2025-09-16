@@ -12,7 +12,7 @@ on:
   push:
     branches:
       - main
-    paths: # Only trigger if changes are in backend directoriess
+    paths: # Only trigger if changes are in backend directoriesssss
       - 'backend/**'
       - '.github/workflows/backend_ci.yml' # Trigger if this workflow file changes
 
