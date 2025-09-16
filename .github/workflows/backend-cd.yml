@@ -100,3 +100,4 @@ jobs:
       - name: Logout from Azure
         run: az logout
 
+#
