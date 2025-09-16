@@ -23,7 +23,7 @@ permissions:
 jobs:
   deploy_backend:
     runs-on: ubuntu-latest
-    environment: Production
+    #environment: Production
     
     outputs:
       PRODUCT_API_IP: ${{ steps.get_product_ip.outputs.external_ip }}
