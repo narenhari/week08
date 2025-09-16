@@ -16,6 +16,10 @@ on:
         required: true
         default: 'week08'
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   deploy_backend:
     runs-on: ubuntu-latest
